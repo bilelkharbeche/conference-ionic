@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Sessions
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content *ngIf="affichageSession == false">
+  <ion-list>
+    <ion-item *ngFor="let sessionTitle of listeTitles">
+      <ion-title (click)="afficherSession(sessionTitle)">{{sessionTitle}}</ion-title>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="affichageSession == true">
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-title>
+        {{session.title}}
+      </ion-title>
+    </ion-item>
+    <ion-label>
+      {{session.description}}
+    </ion-label>
+    <ion-item>
+      PRESENTATEUR
+    </ion-item>
+    <ion-label>
+      <ion-label>
+        TOF NOM+PRENOM
+      </ion-label>
+    </ion-label>
+
+  </ion-list>
+
+
+</ion-content>
