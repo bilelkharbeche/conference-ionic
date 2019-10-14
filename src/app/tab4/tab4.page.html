@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="ion-text-center">
+            Téléphone
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-grid>
+        <ion-row justify-content-between>
+            <ion-col size="6">
+                Platform :
+            </ion-col>
+            <ion-col size="6">
+                {{info.platform}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                Vesion :
+            </ion-col>
+            <ion-col size="6">
+                {{info.osVersion}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                UUID :
+            </ion-col>
+            <ion-col size="6">
+                {{info.uuid}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                Model :
+            </ion-col>
+            <ion-col size="6">
+                {{info.model}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                Connection :
+            </ion-col>
+            <ion-col size="6">
+                {{statut.connectionType}}
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>

@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="affichageSession == false">
+<ion-content *ngIf="affichageSession == false && affichageNote == false">
   <ion-list>
     <ion-item *ngFor="let sessionTitle of listeTitles">
       <ion-title (click)="afficherSession(sessionTitle)">{{sessionTitle}}</ion-title>
@@ -25,15 +25,40 @@
       {{session.description}}
     </ion-label>
     <ion-item>
-      PRESENTATEUR
+      <ion-title class="ion-text-center">
+        Présentateurs
+      </ion-title>
     </ion-item>
     <ion-label>
-      <ion-label>
-        TOF NOM+PRENOM
-      </ion-label>
+      TOF NOM+PRENOM
     </ion-label>
-
+    <ion-button color="secondary" expand="block" (click)="afficherNote()">Mes Notes</ion-button>
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="affichageSession = false">
+    <ion-fab-button color="dark" size="small">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
 
-
+<ion-content *ngIf="affichageNote == true">
+  <ion-title class="ion-text-center ion-padding">
+    {{session.title}}    
+  </ion-title>
+  <ion-button color="invisible" shape="round" fill="clear" (click)="takePicture()">
+      <ion-icon name="camera" color="danger" size="large"></ion-icon>   
+  </ion-button>
+  <ion-button color="secondary" expand="block" (click)="enregistrerNote(contenu)">Enregistrer</ion-button>
+  <ion-item>
+    <ion-textarea name="contenu" #contenu rows="10" cols="20" placeholder="Enter any notes here...">{{notesString}}
+    </ion-textarea>
+  </ion-item>
+  <ion-item>
+      <img [src]="photo">   
+  </ion-item>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="affichageNote = false">
+    <ion-fab-button color="dark" size="small">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
