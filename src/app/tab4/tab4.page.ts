@@ -12,8 +12,8 @@ const { Network } = Plugins;
 })
 export class Tab4Page implements OnInit {
 
-    info = {};
-    statut = {};
+    info:any = {};
+    statut:any = {};
 
     constructor() { }
 
